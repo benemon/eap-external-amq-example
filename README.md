@@ -1,4 +1,4 @@
-# MDB Example with External Artemis Broker
+# MDB Example with External AMQ7 Broker
 
 ## Introduction
 
