@@ -9,3 +9,5 @@ embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xm
 /subsystem=naming/binding=java\:global\/remoteContext:add(binding-type=external-context, class=javax.naming.InitialContext, module=org.apache.activemq.artemis, environment=[java.naming.factory.initial=org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory, java.naming.provider.url=tcp://127.0.0.1:61616, queue.HELLOWORLDMDBQueue=HELLOWORLDMDBQueue])
 
 /subsystem=naming/binding=java\:\/HELLOWORLDMDBQueue:add(lookup=java:global/remoteContext/HELLOWORLDMDBQueue,binding-type=lookup)
+
+stop-embedded-server

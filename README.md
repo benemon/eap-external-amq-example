@@ -125,7 +125,25 @@ drwxr-xr-x    7 eapuser  staff        224 27 Feb 09:26 eapBroker
  
 ## Setup EAP7.1
 
-* Navigate to EAP's `bin` folder, and execute the following JBoss CLI script. This script automates the steps outlined in the official documentation to set up the `standalone-full.xml` profile for use with an external AMQ7 broker.
+* Navigate to EAP's `bin` folder, and execute the following JBoss CLI script. This script automates the steps outlined in the official documentation to set up the `standalone-full.xml` profile for use with an external AMQ7 broker. It contains the following entries:
+
+```
+embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xml
+
+/subsystem=messaging-activemq/server=default/remote-connector=netty-remote-throughput:add(socket-binding=messaging-remote-throughput)
+
+/subsystem=messaging-activemq/server=default/pooled-connection-factory=activemq-ra-remote:add(transaction=xa,entries=[java:/RemoteJmsXA java:jboss/RemoteJmsXA],connectors=[netty-remote-throughput])
+
+/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=messaging-remote-throughput:add(host=localhost, port=61616)
+
+/subsystem=naming/binding=java\:global\/remoteContext:add(binding-type=external-context, class=javax.naming.InitialContext, module=org.apache.activemq.artemis, environment=[java.naming.factory.initial=org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory, java.naming.provider.url=tcp://127.0.0.1:61616, queue.HELLOWORLDMDBQueue=HELLOWORLDMDBQueue])
+
+/subsystem=naming/binding=java\:\/HELLOWORLDMDBQueue:add(lookup=java:global/remoteContext/HELLOWORLDMDBQueue,binding-type=lookup)
+
+stop-embedded-server
+```
+
+* To execute the script, run the following command:
 
 `$ ./jboss-cli.sh --file=../../eap-external-amq-example/configuration/eap-artemis.cli `
 
