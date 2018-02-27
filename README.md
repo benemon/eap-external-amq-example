@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository demonstrates how to configure Red Hat JBoss EAP 7.1 to use an external Red Had JBoss AMQ7 as its Message Broker. It is not meant as an exhaustive tutorial on the use of either product.
+This repository demonstrates how to configure Red Hat JBoss EAP 7.1 to use an external Red Hat JBoss AMQ7 as its Message Broker. It is not meant as an exhaustive tutorial on the use of either product.
 
 The setup steps for this project were sourced from the [official documentation for Red Hat JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#using_jboss_amq_for_remote_jms_communication). Please refer directly to this for further information.
 
