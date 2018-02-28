@@ -149,7 +149,7 @@ stop-embedded-server
 
 `$ ./jboss-cli.sh --file=../../eap-external-amq-example/configuration/eap-artemis.cli `
 
-* The final piece of configuration of the EAP instance is to set the default Connection Factory for all MDBs to use, as by default they'll just use the internal Connection Factory. This can be done by setting the `ejb.resource-adapter-name` property at startup. This can be defined using any of the standard property configuration mechanisms, but in this example a command line property is used.
+* The final piece of configuration of the EAP instance is to set the Resource Adapter for all MDBs to use, as by default they'll just try to use the basic Connection Factory (unless overridden in code on the Bean itself). This can be done by setting the `ejb.resource-adapter-name` property at startup. This can be defined using any of the standard property configuration mechanisms, but in this example a command line property is used.
 
 `-Dejb.resource-adapter-name=activemq-ra-remote`
 
