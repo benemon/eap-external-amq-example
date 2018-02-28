@@ -142,6 +142,7 @@ embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xm
 
 stop-embedded-server
 ```
+**NOTE: If you are running AMQ7 on a different host to EAP, update this script before running it to reference the correct IP address. Make sure any firewall ports are open as appropriate**
 
 * To execute the script, run the following command:
 
@@ -217,6 +218,11 @@ Go to your JBoss EAP server console or server log to see the result of messages 
 17:13:19,310 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-1 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 2
 17:13:19,310 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-0 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 1
 ```
+
+* You can also open up the AMQ management console (the URL is in it's startup message), log in with the `eapUser/eapUser` credentials we assigned to the broker earlier, and open up the local dashboard view.
+
+* Navigate to the HELLOWORLDMDBQueue address, and you should see the correct number of messaging entries - the exact number will depend on how many times you refreshed the web page.
+
 
 
 
