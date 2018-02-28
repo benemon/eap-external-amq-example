@@ -32,8 +32,6 @@ import java.util.logging.Logger;
  * @author Serge Pagop (spagop@redhat.com)
  */
 @MessageDriven(name = "HelloWorldQueueMDB", activationConfig = {
-        @ActivationConfigProperty(propertyName = "user", propertyValue = "eapUser"),
-        @ActivationConfigProperty(propertyName = "password", propertyValue = "eapUser"),
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/HELLOWORLDMDBQueue"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})

@@ -132,7 +132,7 @@ embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xm
 
 /subsystem=messaging-activemq/server=default/remote-connector=netty-remote-throughput:add(socket-binding=messaging-remote-throughput)
 
-/subsystem=messaging-activemq/server=default/pooled-connection-factory=activemq-ra-remote:add(transaction=xa,entries=[java:/RemoteJmsXA java:jboss/RemoteJmsXA],connectors=[netty-remote-throughput])
+/subsystem=messaging-activemq/server=default/pooled-connection-factory=activemq-ra-remote:add((user=eapUser,password=eapUser,transaction=xa,entries=[java:/RemoteJmsXA java:jboss/RemoteJmsXA],connectors=[netty-remote-throughput])
 
 /socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=messaging-remote-throughput:add(host=localhost, port=61616)
 
@@ -142,7 +142,8 @@ embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xm
 
 stop-embedded-server
 ```
-**NOTE: If you are running AMQ7 on a different host to EAP, update this script before running it to reference the correct IP address. Make sure any firewall ports are open as appropriate**
+
+**NOTE: This script file contains credentials and connection information that assumes you are running EAP and AMQ on the same host, and the AMQ credentials match the ones we defined for the broker earlier. If this is not the case, update this script file before execution.**
 
 * To execute the script, run the following command:
 

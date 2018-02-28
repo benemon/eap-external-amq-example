@@ -20,7 +20,6 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
-import javax.jms.JMSPasswordCredential;
 import javax.jms.Queue;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +49,6 @@ public class HelloWorldMDBServletClient extends HttpServlet {
 
     @Inject
     @JMSConnectionFactory("java:/RemoteJmsXA")
-    @JMSPasswordCredential(userName = "eapUser", password = "eapUser")
     private JMSContext context;
 
     @Resource(lookup = "java:/HELLOWORLDMDBQueue")

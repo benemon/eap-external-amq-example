@@ -2,7 +2,7 @@ embed-server --std-out=echo --admin-only=true --server-config=standalone-full.xm
 
 /subsystem=messaging-activemq/server=default/remote-connector=netty-remote-throughput:add(socket-binding=messaging-remote-throughput)
 
-/subsystem=messaging-activemq/server=default/pooled-connection-factory=activemq-ra-remote:add(transaction=xa,entries=[java:/RemoteJmsXA java:jboss/RemoteJmsXA],connectors=[netty-remote-throughput])
+/subsystem=messaging-activemq/server=default/pooled-connection-factory=activemq-ra-remote:add(user=eapUser,password=eapUser,transaction=xa,entries=[java:/RemoteJmsXA java:jboss/RemoteJmsXA],connectors=[netty-remote-throughput])
 
 /socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=messaging-remote-throughput:add(host=localhost, port=61616)
 
