@@ -175,7 +175,7 @@ stop-embedded-server
 
 * Copy the resulting WAR file from `target/helloworld-mdb.war` to your EAP distribution, under `standalone/deployments`.
 
-`$ cp target/helloworld-mdb.war ../jboss-eap-7.1/standalone/deployment/`
+`$ cp target/helloworld-mdb.war ../jboss-eap-7.1/standalone/deployments/`
 
 * After a few seconds, you should see a message similar to the following appear in your EAP console log:
 
